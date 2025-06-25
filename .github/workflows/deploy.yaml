@@ -1,0 +1,18 @@
+name: Apollo CD Deploy
+
+on:
+  push:
+    branches: [main]   # Sólo cuando el PR se fusione en main
+
+jobs:
+  package-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Empacar artefacto
+        run: zip -r apollo_artifact.zip apollo
+      - name: Publicar artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: apollo_artifact
+          path: apollo_artifact.zip

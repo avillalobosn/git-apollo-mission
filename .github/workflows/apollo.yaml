@@ -1,0 +1,72 @@
+name: Apollo CI Mystery
+
+on:
+  push:
+    branches-ignore: [main]
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+  launch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚀 1) Launch – crea token
+        run: |
+          echo "L" > token.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: token
+          path: token.txt
+
+  lunar_orbit_insertion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: token
+      - name: 🌕 3) Lunar Orbit – concatena token
+        run: |
+          echo "N" >> token.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: token
+          path: token.txt
+
+  transposition_and_docking:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: token
+      - name: 🔄 2) Docking – concatena token
+        run: |
+          echo "U" >> token.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: token
+          path: token.txt
+
+  splashdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: token
+      - name: ✅ Verifica token y muestra mensaje lunar
+        run: |
+          ACTUAL=$(cat token.txt)
+          EXPECTED="LUN"
+          if [[ "$ACTUAL" == "$EXPECTED" ]]; then
+            echo "🌊 4) Splashdown completado"
+            python apollo/mission.py
+          else
+            echo "❌ Secuencia incorrecta. Token='$ACTUAL', esperado='$EXPECTED'"
+            exit 1
+          fi
