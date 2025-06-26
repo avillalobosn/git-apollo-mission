@@ -36,7 +36,7 @@ jobs:
       - name: 🔄 2) Docking – concatena token
         run: |
           echo "U" >> token.txt
-          tr --delete '\n' < token.txt > token.txt 
+          tr --delete '\n' < token.txt
           cat token.txt
       - uses: actions/upload-artifact@v4
         with:
@@ -53,8 +53,7 @@ jobs:
       - name: 🌕 3) Lunar Orbit – concatena token
         run: |
           echo "N" >> token.txt
-          cat token.txt
-          tr -d '\n' < token.txt > token.txt
+          tr --delete '\n' < token.txt
           cat token.txt
       - uses: actions/upload-artifact@v4
         with:
