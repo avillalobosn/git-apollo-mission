@@ -51,14 +51,14 @@ jobs:
           name: token
       - name: 🌕 3) Lunar Orbit – concatena token
         run: |
-          echo "N" >> token.txt
+          echo "N" >> token2.txt
           cat token.txt
-          tr -d '\n' < token.txt > token.txt
+          tr -d '\n' < token2.txt > token2.txt
           cat token.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: token-lunar
-          path: token-orbit.txt
+          name: token3
+          path: token3.txt
 
 
   splashdown:
@@ -70,7 +70,7 @@ jobs:
           name: token
       - name: ✅ Verifica token y muestra mensaje lunar
         run: |
-          ACTUAL=$(cat token.txt)
+          ACTUAL=$(cat token3.txt)
           EXPECTED="LUN"
           if [[ "$ACTUAL" == "$EXPECTED" ]]; then
             echo "🌊 4) Splashdown completado"
