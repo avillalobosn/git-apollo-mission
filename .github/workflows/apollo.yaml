@@ -37,6 +37,8 @@ jobs:
         run: |
           echo "U" >> token.txt
           cat token.txt
+          tr -d '\n' < token.txt > token.txt
+          cat token.txt
       - uses: actions/upload-artifact@v4
         with:
           name: token2
