@@ -40,7 +40,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: token2
-          path: token2.txt
+          path: token.txt
 
   lunar_orbit_insertion:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: token3
-          path: token3.txt
+          path: token.txt
 
 
   splashdown:
