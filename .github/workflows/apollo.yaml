@@ -36,6 +36,7 @@ jobs:
       - name: 🔄 2) Docking – concatena token
         run: |
           echo "U" >> token.txt
+          cat token.txt
       - uses: actions/upload-artifact@v4
         with:
           name: token2
@@ -51,10 +52,10 @@ jobs:
       - name: 🌕 3) Lunar Orbit – concatena token
         run: |
           echo "N" >> token.txt
-      #- uses: actions/upload-artifact@v4
-      #  with:
-      #    name: token-lunar
-      #    path: token-orbit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: token-lunar
+          path: token-orbit.txt
 
 
   splashdown:
@@ -67,9 +68,7 @@ jobs:
       - name: ✅ Verifica token y muestra mensaje lunar
         run: |
           ACTUAL=$(cat token.txt)
-          EXPECTED="L
-          U
-          N"
+          EXPECTED="L\nU\nN"
           if [[ "$ACTUAL" == "$EXPECTED" ]]; then
             echo "🌊 4) Splashdown completado"
             python apollo/mission.py
