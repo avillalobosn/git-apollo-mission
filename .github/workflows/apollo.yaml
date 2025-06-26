@@ -36,10 +36,10 @@ jobs:
       - name: 🔄 2) Docking – concatena token
         run: |
           echo "U" >> token.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: token-docking
-          path: token-docking.txt
+      #- uses: actions/upload-artifact@v4
+      #  with:
+      #    name: token-docking
+      #    path: token-docking.txt
 
   lunar_orbit_insertion:
     runs-on: ubuntu-latest
@@ -51,10 +51,10 @@ jobs:
       - name: 🌕 3) Lunar Orbit – concatena token
         run: |
           echo "N" >> token.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: token-lunar
-          path: token-orbit.txt
+      #- uses: actions/upload-artifact@v4
+      #  with:
+      #    name: token-lunar
+      #    path: token-orbit.txt
 
 
   splashdown:
