@@ -38,8 +38,8 @@ jobs:
           echo "U" >> token.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: token
-          path: token.txt
+          name: token-docking
+          path: token-docking.txt
 
   lunar_orbit_insertion:
     runs-on: ubuntu-latest
@@ -53,8 +53,8 @@ jobs:
           echo "N" >> token.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: token
-          path: token.txt
+          name: token-lunar
+          path: token-orbit.txt
 
 
   splashdown:
