@@ -16,7 +16,7 @@ jobs:
 
   launch:
     runs-on: ubuntu-latest
-    needs: ["prepare"]
+    needs: prepare
     steps:
       - name: 🚀 1) Launch – crea token
         run: |
@@ -28,7 +28,7 @@ jobs:
   
   transposition_and_docking:
     runs-on: ubuntu-latest
-    needs: ["launch"]
+    needs: launch
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -43,7 +43,7 @@ jobs:
 
   lunar_orbit_insertion:
     runs-on: ubuntu-latest
-    needs: ["transposition_and_docking"]
+    needs: transposition_and_docking
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -59,7 +59,7 @@ jobs:
 
   splashdown:
     runs-on: ubuntu-latest
-    needs: ["lunar_orbit_insertion"]
+    needs: lunar_orbit_insertion
     steps:
       - uses: actions/download-artifact@v4
         with:
