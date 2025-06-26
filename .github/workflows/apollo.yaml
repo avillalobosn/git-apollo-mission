@@ -52,7 +52,9 @@ jobs:
       - name: 🌕 3) Lunar Orbit – concatena token
         run: |
           echo "N" >> token.txt
+          cat token.txt
           tr -d '\n' < token.txt > token.txt
+          cat token.txt
       - uses: actions/upload-artifact@v4
         with:
           name: token-lunar
