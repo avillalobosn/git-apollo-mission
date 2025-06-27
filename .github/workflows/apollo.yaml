@@ -69,6 +69,7 @@ jobs:
           python-version: 3.9
       - name: ✅ Verifica token y muestra mensaje lunar
         run: |
+          pwd
           ACTUAL=$(tr -d '\n' < token.txt)
           EXPECTED="LUN"
           if [[ "$ACTUAL" == "$EXPECTED" ]]; then
