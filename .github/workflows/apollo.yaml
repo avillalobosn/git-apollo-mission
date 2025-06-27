@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: token
+          name: token2
       - name: 🌕 3) Lunar Orbit – concatena token
         run: |
           echo "N" >> token.txt
@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: token
+          name: token3
       - name: ✅ Verifica token y muestra mensaje lunar
         run: |
           ACTUAL=$(cat token.txt)
