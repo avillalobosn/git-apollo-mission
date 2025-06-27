@@ -53,7 +53,6 @@ jobs:
         run: |
           echo "N" >> token.txt
           cat token.txt
-          tr -d '\n'< token.txt
       - uses: actions/upload-artifact@v4
         with:
           name: token3
@@ -69,7 +68,7 @@ jobs:
           name: token3
       - name: ✅ Verifica token y muestra mensaje lunar
         run: |
-          ACTUAL=$(cat token.txt)
+          ACTUAL=$(tr -d '\n' < token.txt)
           EXPECTED="LUN"
           if [[ "$ACTUAL" == "$EXPECTED" ]]; then
             echo "🌊 4) Splashdown completado"
