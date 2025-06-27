@@ -66,7 +66,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: token3
-          python-version: 3.9
+          python-version: 3.11
       - name: ✅ Verifica token y muestra mensaje lunar
         run: |
           pwd
@@ -74,7 +74,7 @@ jobs:
           EXPECTED="LUN"
           if [[ "$ACTUAL" == "$EXPECTED" ]]; then
             echo "🌊 4) Splashdown completado"
-            python /home/runner/work/git-apollo-mission/git-apollo-mission/apollo/mission.py
+            python apollo/mission.py
           else
             echo "❌ Secuencia incorrecta. Token='$ACTUAL', esperado='$EXPECTED'"
             exit 1
